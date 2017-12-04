@@ -12,11 +12,12 @@
     <script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
     <script src="firebase.js"></script>
     <script src="converse.js"></script>
-    <link type="CSS" rel="bootstrap.css" />
-    <div>
-        <input type="text">
+    <link rel="stylesheet" rel="bootstrap.css" />
+    <div ng-controller="Conversations as conv">
+        <input type="text" ng-model="conv.text" ng-keypress="$event.charcode==13&&conv.send(conv.text)">
         <button class="btn">Send</button>
         <button>login with google</button>
+        <p ng-repeat="msg in conv.conversation">{{msg.sender}}-->{{msg.message}}</p>
     </div>
 
 </body>
